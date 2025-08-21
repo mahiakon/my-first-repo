@@ -1,1 +1,101 @@
-Testing automated push
+#!/bin/bash
+
+# Basic Shell Script for Beginners
+# This script demonstrates fundamental shell scripting concepts
+
+echo "=== Welcome to Shell Scripting! ==="
+echo ""
+
+# Variables
+name="Student"
+today=$(date +%Y-%m-%d)
+time=$(date +%H:%M:%S)
+
+echo "Hello $name!"
+echo "Today's date: $today"
+echo "Current time: $time"
+echo ""
+
+# User input
+echo "What's your name?"
+read username
+echo "Nice to meet you, $username!"
+echo ""
+
+# Conditional statements
+echo "Enter a number:"
+read number
+
+if [ $number -gt 10 ]; then
+    echo "$number is greater than 10"
+elif [ $number -eq 10 ]; then
+    echo "$number is equal to 10"
+else
+    echo "$number is less than 10"
+fi
+echo ""
+
+# For loop
+echo "Counting from 1 to 5:"
+for i in {1..5}
+do
+    echo "Count: $i"
+done
+echo ""
+
+# While loop
+echo "Countdown from 3:"
+counter=3
+while [ $counter -gt 0 ]
+do
+    echo "$counter..."
+    counter=$((counter - 1))
+    sleep 1
+done
+echo "Done!"
+echo ""
+
+# Functions
+greet_user() {
+    echo "Function called! Hello $1!"
+}
+
+echo "Calling a function:"
+greet_user $username
+echo ""
+
+# File operations
+echo "Creating a test file..."
+echo "This file was created by $username on $today at $time" > test-output.txt
+echo "File created: test-output.txt"
+echo ""
+
+# Check if file exists
+if [ -f "test-output.txt" ]; then
+    echo "File exists! Contents:"
+    cat test-output.txt
+else
+    echo "File doesn't exist"
+fi
+echo ""
+
+# Arrays
+echo "Working with arrays:"
+fruits=("apple" "banana" "orange" "grape")
+echo "Fruits in the array:"
+for fruit in "${fruits[@]}"
+do
+    echo "- $fruit"
+done
+echo ""
+
+# System information
+echo "=== System Information ==="
+echo "Username: $(whoami)"
+echo "Current directory: $(pwd)"
+echo "Home directory: $HOME"
+echo "System uptime: $(uptime -p)"
+echo ""
+
+echo "=== Script Complete ==="
+echo "You've learned: variables, input, conditions, loops, functions, files, and arrays!"
